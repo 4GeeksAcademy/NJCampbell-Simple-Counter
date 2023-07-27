@@ -1,0 +1,20 @@
+.counter-display {
+    text-align: center;
+    margin: 50px auto;
+}
+
+.counter-display div {
+    display: inline-block;
+    flex-direction: row;
+    background-color: black;
+    color: white;
+    width: auto;
+    font-size: 3rem;
+    padding: 2px 10px;
+    
+}
+.bi-stopwatch {
+    height: 40px;
+    width: 40px;
+    padding-bottom: 5px;
+}

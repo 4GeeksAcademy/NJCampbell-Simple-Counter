@@ -1,26 +1,39 @@
 import React from "react";
+import PropTypes from "prop-types";
+import SimpleCounter from "./simpleCounter";
+import calculateSeconds from "../lib/libTime";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+
 
 //create your first component
-const Home = () => {
+const Home = ({ counter }) => {
+
+	// function calculateSeconds(aCounter, placeValue){
+	// 	return Math.floor(aCounter / placeValue) % 10;
+	// }
+
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
+		<>
+			{/* <h1>{props.counter}</h1> */}
+			<SimpleCounter 
+				onesDigit={calculateSeconds(counter, 1)}
+				tensDigit={calculateSeconds(counter, 10)}
+				hundredsDigit={calculateSeconds(counter,100)}
+				thousandsDigit={calculateSeconds(counter, 1000)}
+				tenThousandsDigit={calculateSeconds(counter, 10000)}
+				hundredThousandsDigit={calculateSeconds(counter, 100000)}
+			/>
+		</>
 	);
 };
+
+Home.PropTypes = {
+	counter: PropTypes.number,
+	tensDigit: PropTypes.number,
+    hundredsDigit: PropTypes.number,
+    thousandsDigit: PropTypes.number,
+    tenThousandsDigit: PropTypes.number,
+    hundredThousandsDigit: PropTypes.number
+}
 
 export default Home;
